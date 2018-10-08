@@ -1,4 +1,4 @@
-defmodule ServerWeb do
+defmodule ServerWeb.Schema do
   use Absinthe.Schema
 
   query do

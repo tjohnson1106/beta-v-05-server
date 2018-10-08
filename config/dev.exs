@@ -39,7 +39,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :server, Server.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "thomasjohnson",
+  username: "postgres",
   password: "postgres",
   database: "server_dev_v5",
   hostname: "localhost",
