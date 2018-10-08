@@ -13,3 +13,14 @@ photos_list = [
   "https://res.cloudinary.com/bracket-factory/image/upload/v1532452456/saga/industry-sunrise.jpg",
   "https://res.cloudinary.com/bracket-factory/image/upload/v1528082073/saga/abstract_V04.jpg"
 ]
+
+for idx <- 0..mock_photos do
+  photo = %{
+    image_url: Enum.at(photos_list, idx),
+    caption: Faker.Lorem.Shakespeare.king_richard_iii()
+  }
+
+  %Posts.Photo{}
+  |> Posts.Photo.changeset(photo)
+  |> Repo.insert!()
+end
