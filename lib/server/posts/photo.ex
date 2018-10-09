@@ -1,6 +1,7 @@
 defmodule Server.Posts.Photo do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Server.Posts.Photo
 
   schema "photos" do
     field(:caption, :string)
