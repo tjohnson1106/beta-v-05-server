@@ -1,6 +1,7 @@
 defmodule Server.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Server.Accounts.User
 
   schema "users" do
     field(:avatar, :string)
@@ -13,11 +14,13 @@ defmodule Server.Accounts.User do
     timestamps()
   end
 
+  # removed username from validate required
+
   @doc false
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:username, :avatar, :facebook_id, :email, :first_name, :last_name])
-    |> validate_required([:username, :avatar, :facebook_id, :email, :first_name, :last_name])
+    |> validate_required([:avatar, :facebook_id, :email, :first_name, :last_name])
     |> unique_constraint(:facebook_id)
   end
 end
