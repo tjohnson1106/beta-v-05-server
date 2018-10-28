@@ -3,6 +3,7 @@ defmodule ServerWeb.Router do
 
   pipeline :api do
     plug(:accepts, ["json"])
+    plug(ServerWeb.Context)
   end
 
   scope "/api" do

@@ -2,6 +2,7 @@ defmodule ServerWeb.Schema do
   use Absinthe.Schema
 
   alias ServerWeb.Resolvers
+  alias ServerWeb.Schema.Middleware
 
   import_types(__MODULE__.PostsTypes)
   import_types(__MODULE__.AccountsTypes)
@@ -10,6 +11,7 @@ defmodule ServerWeb.Schema do
     @desc "Get list of photos"
 
     field :photos, list_of(:photo) do
+      middleware(Middleware.Authorize)
       resolve(&Resolvers.Posts.photos/3)
     end
 
